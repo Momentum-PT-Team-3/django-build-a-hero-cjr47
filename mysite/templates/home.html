@@ -8,10 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="{% static 'javascript/main.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
     <h1>Hero List</h1>
+    <form id='hero-form' method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ hero_form.as_p }}
+        <button type="Submit">Save</button>
+    </form>
     <ul id="hero-display"></ul>
-    
+
 </body>
 </html>
